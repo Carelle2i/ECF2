@@ -42,37 +42,44 @@ Téléchargez et installez depuis dotnet.microsoft.com.
 # Installation et configuration
 - Étape 1 : Cloner le dépôt
 
-    Clonez ce projet depuis le dépôt Git :
+  Clonez ce projet depuis le dépôt Git :
 
             git clone https://github.com/Carelle2i/ECF2  
             cd MLAgency  
+- Étape 2 : Installation de dépendances
 
-  - Étape 2 : Configuration de la base de données
-
-    1. Mettez à jour la chaîne de connexion SQL Server dans appsettings.json :
-    json 
+  Utilisez les commandes suivantes pour ajouter les packages nécessaires :
   
-           "ConnectionStrings": {  
-           "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=EventManagerDb;Trusted_Connection=True;"  
-           }  
+      dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+      dotnet add package Microsoft.EntityFrameworkCore.Tools
+      dotnet add package MongoDB.Driver
 
-    b. Configurez MongoDB dans appsettings.json :
+- Étape 3 : Configuration de la base de données
 
-           "MongoDb": {  
-           "ConnectionString": "mongodb://localhost:27017",  
-           "DatabaseName": "EventManagerStats"  
-           }  
-    - Étape 3 : Appliquer les migrations et créer la base de données
+  1. Mettez à jour la chaîne de connexion SQL Server dans appsettings.json :
+  json 
+  
+         "ConnectionStrings": {  
+         "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=EventManagerDb;Trusted_Connection=True;"  
+         }  
+
+  b. Configurez MongoDB dans appsettings.json :
+
+         "MongoDb": {  
+         "ConnectionString": "mongodb://localhost:27017",  
+         "DatabaseName": "EventManagerStats"  
+         }  
+- Étape 4 : Appliquer les migrations et créer la base de données
     
-    Générez les tables dans la base de données SQL Server :
+Générez les tables dans la base de données SQL Server :
 
-            dotnet ef migrations add InitialCreate  
-            dotnet ef database update  
-    - Étape 4 : Lancer l’application
+          dotnet ef migrations add InitialCreate  
+          dotnet ef database update  
+- Étape 5 : Lancer l’application
 Exécutez l’application en mode développement :
 
-            dotnet run  
-            L’application sera disponible sur http://localhost:5000 (ou un autre port configuré).
+        dotnet run  
+        L’application sera disponible sur http://localhost:5000 (ou un autre port configuré).
 
 .....................................................................................................
 # Fonctionnalités
