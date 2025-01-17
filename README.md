@@ -43,8 +43,7 @@ Téléchargez et installez depuis dotnet.microsoft.com.
 - Étape 1 : Cloner le dépôt
 
     Clonez ce projet depuis le dépôt Git :
-    
-            bash :
+
             git clone https://github.com/Carelle2i/ECF2  
             cd MLAgency  
 
@@ -53,13 +52,12 @@ Téléchargez et installez depuis dotnet.microsoft.com.
     1. Mettez à jour la chaîne de connexion SQL Server dans appsettings.json :
     json 
   
-           bash : "ConnectionStrings": {  
+           "ConnectionStrings": {  
            "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=EventManagerDb;Trusted_Connection=True;"  
            }  
 
     b. Configurez MongoDB dans appsettings.json :
 
-           bash :
            "MongoDb": {  
            "ConnectionString": "mongodb://localhost:27017",  
            "DatabaseName": "EventManagerStats"  
@@ -67,16 +65,12 @@ Téléchargez et installez depuis dotnet.microsoft.com.
     - Étape 3 : Appliquer les migrations et créer la base de données
     
     Générez les tables dans la base de données SQL Server :
-    
-            bash :
+
             dotnet ef migrations add InitialCreate  
             dotnet ef database update  
     - Étape 4 : Lancer l’application
 Exécutez l’application en mode développement :
-    
 
-            bash :
-            Copier le code
             dotnet run  
             L’application sera disponible sur http://localhost:5000 (ou un autre port configuré).
 
@@ -101,7 +95,6 @@ Exécutez l’application en mode développement :
   Structure du projet
   
 
-              bash :
               MLAgency/  
               │  
               ├── Controllers/       # Contrôleurs MVC (EventController, ParticipantController)  
