@@ -38,10 +38,7 @@ Téléchargez et installez depuis dotnet.microsoft.com.
 2. Base de données SQL : Installez SQL Server ou utilisez SQL Server LocalDB.
 
 3. Base de données NoSQL : Installez MongoDB Community Edition (mongodb.com).
-
-4. Outil de gestion des dépendances : NuGet intégré dans Visual Studio.
-
-....................................................................................................
+.....................................................................................................
 # Installation et configuration
 - Étape 1 : Cloner le dépôt
 
