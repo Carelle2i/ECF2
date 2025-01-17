@@ -28,7 +28,7 @@ Cette application est conçue pour être extensible et suit une architecture bas
 - Base de données relationnelle : SQL Server via Entity Framework Core.
 - Base de données NoSQL : MongoDB pour les statistiques.
 - Client-side : HTML, CSS, Bootstrap, et Chart.js pour les graphiques.
-- Outils de développement : Visual Studio 2022, .NET CLI, et Postman (pour tester l'API).
+- Outils de développement : Rider 2024.3, .NET CLI, et Postman (pour tester l'API).
 
 ...................................................................................................
 # Prérequis
