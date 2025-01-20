@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Event>
+
+@{
+    ViewData["Title"] = "Events - MLAgency";
+}
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">All Events</h1>
+
+    <!-- Affichage des événements -->
+    <div class="row g-4">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var evt in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@evt.Name</h5>
+                            <p class="card-text">
+                                <strong>Date:</strong> @evt.Date.ToString("yyyy-MM-dd")<br>
+                                <strong>Location:</strong> @evt.Location
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <!-- Lien pour éditer l'événement -->
+                                <a href="@Url.Action("Edit", "Event", new { id = evt.Id })" class="btn btn-primary btn-sm">Edit</a>
+
+                                <!-- Formulaire pour supprimer l'événement -->
+                                <form asp-action="Delete" asp-route-id="@evt.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this event?');">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="text-center">
+                <p>No events available. Use the form above to create one.</p>
+            </div>
+        }
+    </div>
+
+    <!-- Bouton pour créer un nouvel événement -->
+    <div class="mt-4 text-center">
+        <a asp-action="CreateEvent" class="btn btn-success">Create New Event</a>
+    </div>
+</div>

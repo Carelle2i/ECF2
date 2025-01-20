@@ -1,0 +1,48 @@
+﻿@model List<Participant>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">All Participants</h1>
+    <div class="row g-4">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var participant in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@participant.FullName</h5>
+                            <p class="card-text">
+                                <strong>Email:</strong> @participant.Email<br>
+                                <strong>Event:</strong>
+                                @if (participant.ParticipantEvents != null && participant.ParticipantEvents.Any())
+                                {
+                                    @foreach (var eventLink in participant.ParticipantEvents)
+                                    {
+                                        <span>@eventLink.Event?.Name</span><br />
+                                    }
+                                }
+                                else
+                                {
+                                    <span>No associated events</span>
+                                }
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <a asp-action="Edit" asp-route-id="@participant.Id" class="btn btn-primary btn-sm">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@participant.Id" class="btn btn-danger btn-sm">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="text-center">
+                <p>No participants available. Click the button below to add a new participant.</p>
+            </div>
+        }
+    </div>
+    <div class="mt-4 text-center">
+        <a asp-action="AddParticipant" class="btn btn-success">Add New Participant</a>
+    </div>
+</div>

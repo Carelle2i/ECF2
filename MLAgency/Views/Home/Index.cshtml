@@ -1,0 +1,180 @@
+﻿@{
+    ViewData["Title"] = "MLAgency - Home";
+}
+
+<!-- Barre de navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">MLAgency</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Event" asp-action="Index">Events</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Participant" asp-action="Index">Participants</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Section principale -->
+<div class="container mt-5 text-center">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 class="display-4">Create Unforgettable Moments with Event Agency!</h1>
+            <p class="lead">Plan Your Perfect Event Today!</p>
+            <a href="/Home/Contact" class="btn btn-primary btn-lg">Contact Us</a>
+        </div>
+        <div class="col-md-6">
+            <img src="/images/event.jpg" alt="Event Agency" class="img-fluid rounded">
+        </div>
+    </div>
+</div>
+
+<!-- Statistiques -->
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-3">
+            <div class="card bg-dark text-light">
+                <div class="card-body">
+                    <h2>123</h2>
+                    <p>Events</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-dark text-light">
+                <div class="card-body">
+                    <h2>35</h2>
+                    <p>Birthdays</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-dark text-light">
+                <div class="card-body">
+                    <h2>67</h2>
+                    <p>Weddings</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-dark text-light">
+                <div class="card-body">
+                    <h2>21</h2>
+                    <p>Corporate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What We Have -->
+<div class="container text-center my-5">
+    <h2 class="mb-4">What We Have</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>1</h3>
+                    <p>We always have favorable conditions from contractors</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>2</h3>
+                    <p>We offer the best options for your budget</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>3</h3>
+                    <p>We can organize great events even in a short time</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gallery -->
+<div class="container text-center my-5">
+    <h2 class="mb-4">Gallery</h2>
+    <div class="row g-3">
+        @for (int i = 0; i < 9; i++)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/images/placeholder.jpg" class="card-img-top" alt="Gallery Image">
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Reviews -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Reviews</h2>
+    <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <blockquote class="blockquote text-center">
+                    <p class="mb-4">"I can't thank Event Agency enough for making my wedding day a dream come true."</p>
+                    <footer class="blockquote-footer">Sarah W. <cite title="Date">12.02.2022</cite></footer>
+                </blockquote>
+            </div>
+            <div class="carousel-item">
+                <blockquote class="blockquote text-center">
+                    <p class="mb-4">"Event Agency turned my birthday celebration into an unforgettable experience."</p>
+                    <footer class="blockquote-footer">Michael R. <cite title="Date">21.09.2022</cite></footer>
+                </blockquote>
+            </div>
+            <div class="carousel-item">
+                <blockquote class="blockquote text-center">
+                    <p class="mb-4">"I couldn't have asked for a better team to organize my corporate event."</p>
+                    <footer class="blockquote-footer">Mark L. <cite title="Date">05.03.2023</cite></footer>
+                </blockquote>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- Contact Form -->
+<section id="contact" class="container my-5">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <form action="/Home/SendMessage" method="post" class="row g-3">
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="col-md-6">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required>
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="col-md-12">
+            <label for="event" class="form-label">Your Event</label>
+            <textarea class="form-control" id="event" name="event" rows="4" required></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+    </form>
+</section>

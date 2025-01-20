@@ -1,0 +1,36 @@
+﻿@model Participant
+
+    @{
+    ViewData["Title"] = "Add Participant - MLAgency";
+    var events = ViewBag.Events as List<Event>; // Liste des événements
+}
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">Add a New Participant</h1>
+    <form asp-action="AddParticipant" method="post" class="row g-3">
+    <div class="col-md-6">
+    <label for="name" class="form-label">Participant Name</label>
+    <input type="text" class="form-control" id="name" name="FullName" required />
+    </div>
+    <div class="col-md-6">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="Email" required />
+    </div>
+    <div class="col-md-12">
+    <label for="event" class="form-label">Event</label>
+    <select id="event" name="EventId" class="form-select" required>
+    <option value="">Select an event</option>
+    @if (events != null)
+{
+    foreach (var evt in events)
+    {
+        <option value="@evt.Id">@evt.Name (@evt.Date.ToString("yyyy-MM-dd"))</option>
+    }
+}
+</select>
+    </div>
+    <div class="col-12 text-center">
+    <button type="submit" class="btn btn-success">Add Participant</button>
+    </div>
+    </form>
+    </div>

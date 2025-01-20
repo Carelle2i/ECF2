@@ -57,7 +57,7 @@ Téléchargez et installez depuis dotnet.microsoft.com.
 - Étape 3 : Configuration de la base de données
 
   1. Mettez à jour la chaîne de connexion SQL Server dans appsettings.json :
-  json 
+   
   
          "ConnectionStrings": {  
          "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=EventManagerDb;Trusted_Connection=True;"  
@@ -102,15 +102,35 @@ Exécutez l’application en mode développement :
   Structure du projet
   
 
-              MLAgency/  
-              │  
-              ├── Controllers/       # Contrôleurs MVC (EventController, ParticipantController)  
-              ├── Models/            # Modèles de données (Event, Participant, Statistic)  
-              ├── Data/              # Classes de contexte (AppDbContext pour SQL, MongoDbContext)  
-              ├── Services/          # Services métiers (EventService, ParticipantService)  
-              ├── Views/             # Fichiers Razor pour les interfaces utilisateur  
-              │   ├── Event/         # Vues pour les événements  
-              │   ├── Participant/   # Vues pour les participants  
-              ├── wwwroot/           # Contenus statiques (CSS, JS, images)  
-              ├── appsettings.json   # Configuration (SQL Server, MongoDB)  
-              └── Program.cs         # Configuration principale de l'application  
+              MLAgency/
+              │
+              ├── Controllers/
+              │   ├── EventController.cs
+              │   ├── ParticipantController.cs
+              │
+              ├── Models/
+              │   ├── Event.cs
+              │   ├── Participant.cs
+              │
+              ├── Services/
+              │   ├── EventService.cs
+              │   ├── ParticipantService.cs
+              │
+              ├── Data/
+              │   ├── AppDbContext.cs
+              │
+              ├── Views/
+              │   ├── Event/
+              │   │   ├── Index.cshtml
+              │   │   ├── Create.cshtml
+              │   │   ├── Edit.cshtml
+              │   │   ├── Details.cshtml
+              │
+              ├── wwwroot/
+              │   ├── css/
+              │   ├── js/
+              │
+              ├── appsettings.json
+              ├── Program.cs
+              
+
